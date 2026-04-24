@@ -103,7 +103,7 @@ function App() {
           <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
           <main>
-            <Topbar onAnalyze={handleAnalyze} loading={loading} result={result} activeTab={activeTab} />
+            <Topbar result={result} activeTab={activeTab} />
 
             <div className="mb-5">
               <SectionCard
@@ -134,7 +134,7 @@ function App() {
               </SectionCard>
             </div>
 
-            {activeTab === 'input' && <InputLab formData={formData} setField={setField} />}
+            {activeTab === 'input' && ( <InputLab formData={formData} setField={setField} onAnalyze={handleAnalyze} loading={loading} /> )}
             {activeTab === 'dashboard' && <AnalysisDashboard result={result} formData={formData} />}
             {activeTab === 'compare' && (
               <CompareProjects
